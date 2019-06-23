@@ -51,4 +51,4 @@ Exercises in this repositoty are based on this following book.
 * Chapter 15. 예외처리(Exception Handling)
 * Chapter 16. C++의 형 변환 연산자
 
-More things will be covered in this repository. Because there are so many contents under each chapter, if you want to see what contents are covered exactly, refer to .md files uploaded to each chapter folder.
+More things will be covered in this repository. Because there are so many contents under each chapter, if you want to see what contents are covered exactly, refer to README.md files uploaded to each chapter folder.
