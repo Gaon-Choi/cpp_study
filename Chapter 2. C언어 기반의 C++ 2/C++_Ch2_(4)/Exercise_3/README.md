@@ -12,7 +12,7 @@ int main(void) {
 }
 ```
 
-In the code, ptr1 and ptr2 points ptr1, ptr2 each.
+In the code, ptr1 and ptr2 points num1, num2 each.
 
 Define SwapPointer function which changes ptr1 and ptr2 each other.
 
