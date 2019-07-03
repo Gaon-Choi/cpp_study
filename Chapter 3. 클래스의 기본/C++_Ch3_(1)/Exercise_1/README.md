@@ -37,6 +37,8 @@ int main(void) {
 
 And as shown in the comments above, Functions need to be defined so that the results are like the following.
 
-*[Example]*
+**[Example]**
+
 [5, 14]
+
 [25, 44]
