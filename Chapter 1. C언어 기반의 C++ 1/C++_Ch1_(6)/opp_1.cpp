@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 void MakeAccount(int id, char* name, int money);
 void Deposit(int id, int money);
 void Withdraw(int id, int money);
 void ShowMenu();
-void CheckID(int id, int *p, bool *ok);
-void CheckID(int id, int* p);
+bool CheckID(int id, int* p);
 typedef struct {
 	int id;
 	char name[10];
@@ -19,7 +19,7 @@ int accNum = 0;
 Account accArr[100];
 
 int main(void) {
-	int power=0;
+	int power = 0;
 	while (power != 5) {
 		ShowMenu();
 		cin >> power;
@@ -48,7 +48,7 @@ int main(void) {
 			cout << "\n[출금]\n";
 			cout << "계좌ID: ";
 			cin >> id;
-			cout << "입금액: ";
+			cout << "출금액: ";
 			cin >> money;
 			Withdraw(id, money);
 			break;
@@ -57,7 +57,7 @@ int main(void) {
 			for (int i = 0; i < accNum; i++) {
 				cout << "계좌ID: " << accArr[i].id << endl;
 				cout << "이 름: " << accArr[i].name << endl;
-				cout << "잔 액: "<<accArr[i].money<<endl<<endl;
+				cout << "잔 액: " << accArr[i].money << endl << endl;
 			}
 			break;
 		}
@@ -66,46 +66,29 @@ int main(void) {
 			cout << "잘못된 입력입니다.\n\n";
 		}
 		}
-		cout << "--------------------\n";
+		cout << "----------------------\n";
 	}
 	return 0;
 }
 
-void CheckID(int id, int *p, bool *ok)  //출금할 때에 한해 계좌의 여부를 함께 확인하는 함수
-{
+bool CheckID(int id, int* p) { //출금할 때에 한해 계좌의 여부를 함께 확인하는 함수
+
 	while (1) {
 		if (*p >= 100) {
-			*ok = false;
+			return false;
 			break;
 		}
-
-		if (accArr[*p].id!=id) {
-			*p += 1;
-		}
-		else if (accArr[*p].id==id) {
-			return;
-		}
-	}
-
-	cout << "유효하지 않은 ID입니다.\n\n";
-}
-
-void CheckID(int id, int* p) {  //계좌의 아이디의 유무를 확인하는 함수(입금에 이용)
-	while (1) {
-		if (*p >= 100) {
-			break;
-		}
-
 		if (accArr[*p].id != id) {
 			*p += 1;
+			return NULL;
 		}
 		else if (accArr[*p].id == id) {
-			return;
+			return true;
 		}
 	}
 
-	cout << "유효하지 않은 ID입니다.\n\n";
 }
+
 
 void MakeAccount(int id, char* name, int money) {
 	accArr[accNum].id = id;
@@ -116,17 +99,20 @@ void MakeAccount(int id, char* name, int money) {
 
 void Deposit(int id, int money) {
 	int p = 0;
-	CheckID(id, &p);
-	int u = p;
-	accArr[u].money += money;
+	if (CheckID(id, &p)) {
+		int u = p;
+		accArr[u].money += money;
+	}
+	else {
+		cout << "유효하지 않은 ID입니다.\n\n";
+	}
 	return;
 }
 
 void Withdraw(int id, int money) {
 	int p = 0;
 	bool ok = true;
-	CheckID(id, &p, &ok);
-	while (ok == true) {
+	if (CheckID(id, &p)) {
 		int u = p;
 		if (money <= accArr[u].money) {
 			accArr[u].money -= money;
@@ -136,11 +122,14 @@ void Withdraw(int id, int money) {
 			cout << "잔액이 부족합니다.\n";
 		}
 	}
+	else {
+		cout << "유효하지 않은 ID입니다.\n\n";
+	}
 	return;
 }
 
 void ShowMenu() {
-	cout << "\n--------Menu--------\n";
+	cout << "\n---------Menu---------\n";
 	cout << "1. 계좌개설\n";
 	cout << "2. 입 금\n";
 	cout << "3. 출 금\n";
