@@ -1,6 +1,6 @@
 # Exercise 1
 
-Define **Circle Class** which means a circle using the following **Point Class**.
+Define **Circle Class** which means a circle, using the following **Point Class**.
 
 ```cpp
 class Point {
