@@ -1,0 +1,5 @@
+﻿  BankingSystemMain.cpp
+C:\Users\choig\Desktop\oop_7\OOP_7\BankingSystemMain.cpp(7,7): warning C4101:  'name' :참조되지 않은 지역 변수입니다.
+C:\Users\choig\Desktop\oop_7\OOP_7\BankingSystemMain.cpp(6,6): warning C4101:  'id' :참조되지 않은 지역 변수입니다.
+C:\Users\choig\Desktop\oop_7\OOP_7\BankingSystemMain.cpp(6,10): warning C4101:  'money' :참조되지 않은 지역 변수입니다.
+  OOP_7.vcxproj -> C:\Users\choig\Desktop\oop_7\Debug\OOP_7.exe
