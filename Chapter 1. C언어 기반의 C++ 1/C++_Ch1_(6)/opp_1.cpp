@@ -72,21 +72,18 @@ int main(void) {
 }
 
 bool CheckID(int id, int* p) { //출금할 때에 한해 계좌의 여부를 함께 확인하는 함수
-
 	while (1) {
-		if (*p >= 100) {
+		if (*p >= accNum || accNum == 0)
 			return false;
-			break;
-		}
-		if (accArr[*p].id != id) {
-			*p += 1;
-			return NULL;
-		}
-		else if (accArr[*p].id == id) {
+		if (accArr[*p]->GetID() == id_) {
 			return true;
 		}
-	}
+		else {
+			*p += 1;
+		}
 
+	}
+	return false;
 }
 
 
