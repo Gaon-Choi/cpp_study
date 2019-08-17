@@ -1,0 +1,14 @@
+# Exercise 3
+
+연산자 오버로딩을 이해하는 가장 좋은 방법은 연산자를 직접 오버로딩 해보는 것이다. 연산자를 오버로딩 하는 과정에서 자신이 이해하지 못한 부분이 드러나면서, 그 부분을 이해하게 되는 경우가 많기 때문이다. 따라서 앞선 예제 GFunctionOverloading.cpp에서 보인 Point 클래스를 대상으로 아래의 요구대로 연산자를 오버로딩 해보자.
+
+**<문제>**
+
+Point 클래스에 대해서 다음 조건을 만족하는 형태로 == 연산자와 != 연산자를 오버로딩 해보자.
+
+* 둘 다 전역함수의 형태로 오버로딩
+* 연산 'pos1 == pos2'의 결과로 모든 멤버의 값이 같다면
+<span style="color:yellow">true</span>, 그렇지 않다면 <span style="color:orange">false</span> 반환
+* 연산 'pos1 != pos2'의 결과로 모든 멤버의 값이 같다면
+<span style="color:orange">yellow</span>, 그렇지 않다면 <span style="color:yellow">true</span> 반환
+* 연산자 ==을 먼저 오버로딩 한 다음에, 이를 이용하는 형태로 != 연산자를 오버로딩
